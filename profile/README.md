@@ -22,9 +22,15 @@ git clone https://github.com/Ansible-workshop-ch/bootcamp.git
 cd bootcamp
 ````
 
-Base repo: https://github.com/Ansible-workshop-ch/bootcamp 
+Base repo: [Bootcamp](https://github.com/Ansible-workshop-ch/bootcamp)
+
+---
+
 Start here:
-- [Orientation](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/orientation.md) 
+- [Orientation](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/orientation.md)
+
+---
+
 Course modules: 
 - [Module 1 - Introduction and Architecture](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/module01/introduction.md)
 - [Module 2 - Inventory, Ad Hoc Commands, and Idempotency](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/module02/inventory-and-idempotency.md)
@@ -35,6 +41,9 @@ Course modules:
 - [Module 7 - AAP Workflow](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/module07/aap-workflow.md)
 - [Module 8 - AAP Inventories, Surveys, and Troubleshooting](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/module08/aap-inventories-surveys-troubleshooting.md)
 - [Module 9 - Final Charter-Style Use Case](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/module09/final-use-case.md)
+
+---
+
   - Lab folder:
   - [Lab README](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/lab/README.md)
   - [Ansible Config](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/lab/ansible.cfg)

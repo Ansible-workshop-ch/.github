@@ -44,7 +44,7 @@ Course modules:
 
 ---
 
-  - Lab folder:
+Lab folder:
   - [Lab README](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/lab/README.md)
   - [Ansible Config](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/lab/ansible.cfg)
   - [Inventory File](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/lab/inventories/inventory.ini)

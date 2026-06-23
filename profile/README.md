@@ -23,7 +23,8 @@ cd bootcamp
 ````
 
 Base repo: https://github.com/Ansible-workshop-ch/bootcamp 
-Start here: - [Orientation](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/orientation.md) 
+Start here:
+- [Orientation](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/orientation.md) 
 Course modules: 
 - [Module 1 - Introduction and Architecture](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/module01/introduction.md)
 - [Module 2 - Inventory, Ad Hoc Commands, and Idempotency](https://github.com/Ansible-workshop-ch/bootcamp/blob/main/module02/inventory-and-idempotency.md)

@@ -1,4 +1,4 @@
-````markdown
+
 ![Ansible Training Banner](images/backred1.png)
 
 # Ansible & AAP Training Bootcamp
@@ -315,4 +315,4 @@ I understand how Ansible works. I can read and modify a playbook. I understand i
 * [Module 9 - Final Charter-Style Use Case](module09/final-use-case.md)
 
 ```
-```
+

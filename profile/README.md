@@ -1,5 +1,5 @@
 
-![Ansible Training Banner](images/backred1.png)
+![Ansible Training Banner](images/ansible-banner.png)
 
 # Ansible & AAP Training Bootcamp
 

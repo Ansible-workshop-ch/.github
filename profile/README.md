@@ -1,104 +1,318 @@
-![OpenShift Banner](images/ansible-banner.png)
+````markdown
+![Ansible Training Banner](images/backred1.png)
 
-# Ansible & AAP Training
+# Ansible & AAP Training Bootcamp
 
-A hands-on, **code-first** training repo for Charter teams — especially Puppet engineers — moving into **Ansible** and **Ansible Automation Platform (AAP 2.6)**.
+A hands-on, code-first Ansible training repo for Charter teams, especially Puppet engineers moving into Ansible and Ansible Automation Platform.
 
-CLI first, AAP second. Linux-focused labs. Every module follows the same shape: **Definition → Diagram/Workflow → Hands-On Walkthrough → Quiz → Hands-On Lab.**
+This bootcamp starts with the Ansible CLI first, then moves into AAP workflows. The labs are Linux-focused and designed for beginners.
+
+Every module follows the same learning flow:
+
+Definition -> Diagram / Workflow -> Hands-On Walkthrough -> Quiz -> Hands-On Lab
 
 ---
 
 ## Quick start
 
-```bash
-git clone <training-repo-url> charter-ansible-training
-cd charter-ansible-training
+Clone the repo:
 
-# edit inventories/inventory.ini with your lab host details, then:
+```bash
+git clone https://github.com/Ansible-workshop-ch/bootcamp.git
+cd bootcamp
+````
+
+Go into the lab directory:
+
+```bash
+cd lab
+```
+
+Edit the inventory file with your real lab host IP addresses or DNS names:
+
+```bash
+vim inventories/inventory.ini
+```
+
+Test Ansible connectivity:
+
+```bash
 ansible all -m ping
+```
+
+Run the first playbook:
+
+```bash
+ansible-playbook playbooks/module1_ping.yml
+```
+
+Run the webserver playbook:
+
+```bash
 ansible-playbook playbooks/module3_webserver.yml
 ```
 
-`ansible.cfg` already points at `inventories/inventory.ini` and `roles/`, so you can run commands from the repo root without `-i`.
+The `lab/ansible.cfg` file already points to:
+
+```text
+inventories/inventory.ini
+roles/
+```
+
+Because of that, run Ansible commands from inside the `lab/` directory unless instructed otherwise.
 
 ---
 
 ## Repo layout
 
 ```text
-charter-ansible-training/
-├── ansible.cfg                 # inventory + roles path defaults
-├── inventories/inventory.ini   # sample lab inventory (edit me)
-├── group_vars/                 # all.yml, web.yml
-├── host_vars/                  # server1.yml (override example)
-├── playbooks/                  # one playbook per module
-├── roles/web_config/           # the reusable role (Module 6+)
-├── templates/                  # shared Jinja2 templates
-└── docs/                       # the course modules (start here)
+bootcamp/
+├── README.md
+├── images/
+│   ├── backred1.png
+│   └── nexticon.webp
+├── lab/
+│   ├── README.md
+│   ├── ansible.cfg
+│   ├── group_vars/
+│   │   ├── all.yml
+│   │   └── web.yml
+│   ├── host_vars/
+│   │   └── server1.yml
+│   ├── inventories/
+│   │   └── inventory.ini
+│   ├── playbooks/
+│   │   ├── module1_ping.yml
+│   │   ├── module2_service.yml
+│   │   ├── module3_webserver.yml
+│   │   ├── module4_variables.yml
+│   │   ├── module5_template_deploy.yml
+│   │   ├── module6_role_apply.yml
+│   │   └── module9_final_usecase.yml
+│   ├── roles/
+│   │   └── web_config/
+│   │       ├── defaults/
+│   │       │   └── main.yml
+│   │       ├── handlers/
+│   │       │   └── main.yml
+│   │       ├── meta/
+│   │       │   └── main.yml
+│   │       ├── tasks/
+│   │       │   └── main.yml
+│   │       ├── templates/
+│   │       │   └── index.html.j2
+│   │       └── vars/
+│   │           └── main.yml
+│   ├── templates/
+│   │   ├── index.html.j2
+│   │   └── motd.j2
+├── module01/
+│   └── introduction.md
+├── module02/
+│   └── inventory-and-idempotency.md
+├── module03/
+│   └── playbook-basics.md
+├── module04/
+│   └── variables-and-facts.md
+├── module05/
+│   └── conditions-loops-handlers-templates.md
+├── module06/
+│   └── roles-and-code-first.md
+├── module07/
+│   └── aap-workflow.md
+├── module08/
+│   └── aap-inventories-surveys-troubleshooting.md
+├── module09/
+│   └── final-use-case.md
+└── orientation.md
 ```
+
+---
+
+## Where to start
+
+Start with the orientation page:
+
+[Pre-Training Orientation](orientation.md)
+
+Then continue through the modules in order.
 
 ---
 
 ## Course map
 
-**Before Day 1:** [Pre-Training Orientation](docs/00-orientation.md)
+### Day 1 - Foundations and confidence
 
-### Day 1 — Foundations and confidence
-| Module | Topic |
-|--------|-------|
-| 1 | [Introduction and Architecture](docs/module-01-introduction-architecture.md) |
-| 2 | [Inventory, Ad Hoc Commands, Idempotency](docs/module-02-inventory-adhoc-idempotency.md) |
-| 3 | [Playbook Basics](docs/module-03-playbook-basics.md) |
+| Module | Topic                                                                                |
+| ------ | ------------------------------------------------------------------------------------ |
+| 1      | [Introduction and Architecture](module01/introduction.md)                            |
+| 2      | [Inventory, Ad Hoc Commands, and Idempotency](module02/inventory-and-idempotency.md) |
+| 3      | [Playbook Basics](module03/playbook-basics.md)                                       |
 
-*Outcome: run basic Ansible commands and write a simple playbook.*
+Day 1 outcome:
 
-### Day 2 — Core Ansible skills
-| Module | Topic |
-|--------|-------|
-| 4 | [Variables, Facts, group_vars, host_vars](docs/module-04-variables-facts-groupvars-hostvars.md) |
-| 5 | [Conditions, Loops, Handlers, Templates](docs/module-05-conditions-loops-handlers-templates.md) |
-| 6 | [Roles and Code-First Structure](docs/module-06-roles-code-first.md) |
-
-*Outcome: build reusable automation with variables, templates, handlers, and roles.*
-
-### Day 3 — AAP and applied workflow
-| Module | Topic |
-|--------|-------|
-| 7 | [AAP Workflow for Operators](docs/module-07-aap-workflow-operators.md) |
-| 8 | [AAP Inventories, Schedules, Surveys, Troubleshooting](docs/module-08-aap-inventories-schedules-surveys.md) |
-| 9 | [Final Charter-Style Use Case](docs/module-09-final-charter-usecase.md) |
-
-*Outcome: connect Git-based code to AAP, run job templates, troubleshoot output.*
+Students can explain what Ansible is, understand inventory basics, run ad hoc commands, and write a simple playbook.
 
 ---
 
-## Playbook ↔ module reference
+### Day 2 - Core Ansible skills
 
-| Playbook | Module |
-|----------|--------|
-| `playbooks/module1_ping.yml` | 1 — connectivity |
-| `playbooks/module2_service.yml` | 2 — install/start service |
-| `playbooks/module3_webserver.yml` | 3 — first playbook |
-| `playbooks/module4_variables.yml` | 4 — variables and facts |
-| `playbooks/module5_template_deploy.yml` | 5 — condition/loop/template/handler |
-| `playbooks/module6_role_apply.yml` | 6 — apply the role |
-| `playbooks/module9_final_usecase.yml` | 9 — final use case |
+| Module | Topic                                                                                         |
+| ------ | --------------------------------------------------------------------------------------------- |
+| 4      | [Variables and Facts](module04/variables-and-facts.md)                                        |
+| 5      | [Conditions, Loops, Handlers, and Templates](module05/conditions-loops-handlers-templates.md) |
+| 6      | [Roles and Code-First Structure](module06/roles-and-code-first.md)                            |
+
+Day 2 outcome:
+
+Students can use variables, facts, templates, loops, handlers, and roles to build reusable automation.
+
+---
+
+### Day 3 - AAP and applied workflow
+
+| Module | Topic                                                                                                |
+| ------ | ---------------------------------------------------------------------------------------------------- |
+| 7      | [AAP Workflow](module07/aap-workflow.md)                                                             |
+| 8      | [AAP Inventories, Surveys, and Troubleshooting](module08/aap-inventories-surveys-troubleshooting.md) |
+| 9      | [Final Charter-Style Use Case](module09/final-use-case.md)                                           |
+
+Day 3 outcome:
+
+Students understand how Git-based Ansible code connects to AAP projects, inventories, job templates, surveys, schedules, and troubleshooting workflows.
+
+---
+
+## Lab playbook reference
+
+Run these commands from inside the `lab/` directory.
+
+| Playbook                                | Purpose                                        |
+| --------------------------------------- | ---------------------------------------------- |
+| `playbooks/module1_ping.yml`            | Test connectivity                              |
+| `playbooks/module2_service.yml`         | Install and manage a service                   |
+| `playbooks/module3_webserver.yml`       | Build a basic web server                       |
+| `playbooks/module4_variables.yml`       | Practice variables and facts                   |
+| `playbooks/module5_template_deploy.yml` | Use conditions, loops, templates, and handlers |
+| `playbooks/module6_role_apply.yml`      | Apply the `web_config` role                    |
+| `playbooks/module9_final_usecase.yml`   | Run the final applied use case                 |
+
+Example:
+
+```bash
+cd lab
+ansible-playbook playbooks/module3_webserver.yml
+```
+
+---
+
+## Inventory
+
+The sample inventory is located here:
+
+```text
+lab/inventories/inventory.ini
+```
+
+Example inventory structure:
+
+```ini
+[web]
+server1 ansible_host=10.0.0.11
+server2 ansible_host=10.0.0.12
+
+[db]
+dbserver1 ansible_host=10.0.0.21
+
+[linux:children]
+web
+db
+
+[linux:vars]
+ansible_user=ansible
+ansible_python_interpreter=/usr/bin/python3
+```
+
+Replace the sample IP addresses with real reachable lab hosts.
 
 ---
 
 ## Prerequisites
 
-Basic Linux CLI · basic SSH · basic Git (cloning) · access to the lab host and the AAP 2.6 sandbox. **No prior Ansible experience required.**
+Students should have basic familiarity with:
 
-## Scope notes
+* Linux command line
+* SSH
+* Git clone and basic Git workflow
+* YAML basics
+* Basic server administration concepts
 
-**Emphasized:** CLI, inventory, ad hoc commands, playbooks, variables, facts, `group_vars`/`host_vars`, conditions, loops, templates, handlers, roles, Git structure, AAP projects/inventories/job templates/output, troubleshooting, code-first workflow.
+No prior Ansible experience is required.
 
-**Kept light:** Windows / WinRM / PowerShell, AWS, deep NetBox, HashiCorp Vault / CyberArk, AAP installation, execution environment creation, deep Puppet-to-Ansible comparison.
+---
+
+## Training scope
+
+Covered in this bootcamp:
+
+* What Ansible is
+* Inventory
+* Ad hoc commands
+* Modules
+* Idempotency
+* Playbooks
+* Variables
+* Facts
+* `group_vars`
+* `host_vars`
+* Conditions
+* Loops
+* Templates
+* Handlers
+* Roles
+* Code-first repo structure
+* AAP projects
+* AAP inventories
+* AAP job templates
+* AAP surveys
+* AAP schedules
+* AAP job output
+* Basic troubleshooting
+
+Kept light:
+
+* Windows automation
+* WinRM
+* PowerShell
+* AWS-specific automation
+* Deep NetBox integration
+* HashiCorp Vault or CyberArk integration
+* AAP installation
+* Execution environment build process
+* Deep Puppet-to-Ansible migration mapping
 
 ---
 
 ## Success criteria
 
-A graduate of this course can say: *I understand how Ansible works, I can read and modify a playbook, I understand `group_vars`/`host_vars`, I understand roles, I can run automation from CLI and from AAP, I can read AAP job output, and I can troubleshoot common failures.*
+By the end of this course, students should be able to say:
 
+I understand how Ansible works. I can read and modify a playbook. I understand inventory, `group_vars`, `host_vars`, variables, facts, templates, handlers, and roles. I can run automation from the CLI and understand how the same workflow maps into AAP. I can read job output and troubleshoot common failures.
+
+---
+
+## Main GitHub module links
+
+* [Orientation](orientation.md)
+* [Module 1 - Introduction and Architecture](module01/introduction.md)
+* [Module 2 - Inventory, Ad Hoc Commands, and Idempotency](module02/inventory-and-idempotency.md)
+* [Module 3 - Playbook Basics](module03/playbook-basics.md)
+* [Module 4 - Variables and Facts](module04/variables-and-facts.md)
+* [Module 5 - Conditions, Loops, Handlers, and Templates](module05/conditions-loops-handlers-templates.md)
+* [Module 6 - Roles and Code-First Structure](module06/roles-and-code-first.md)
+* [Module 7 - AAP Workflow](module07/aap-workflow.md)
+* [Module 8 - AAP Inventories, Surveys, and Troubleshooting](module08/aap-inventories-surveys-troubleshooting.md)
+* [Module 9 - Final Charter-Style Use Case](module09/final-use-case.md)
+
+```
+```

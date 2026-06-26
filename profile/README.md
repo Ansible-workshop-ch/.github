@@ -1,8 +1,6 @@
 
 ![Ansible Training Banner](images/ansible-banner.png)
 
-![Ansible Training Banner](images/ansible-banner.png)
-
 # Ansible & AAP Training Bootcamp
 
 A hands-on, code-first Ansible training repo for Charter teams, especially Puppet engineers moving into Ansible and Ansible Automation Platform.
